@@ -30,3 +30,8 @@ Thumbs.db
 # Raw downloads and duplicate processed cache (clean dataset is tracked under data/clean/)
 data/raw/
 data/processed/
+
+# Non-pilot style images (downloadable via scripts/download_hf_dataset.py)
+data/clean/images/bauhaus/
+data/clean/images/international_style/
+data/clean/images/postmodern/
