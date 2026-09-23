@@ -1,0 +1,68 @@
+# ==============================================================================
+# Pilot Experiment: Brutalism Architecture SDXL LoRA Training Configuration
+# ==============================================================================
+
+model:
+  pretrained_model_name_or_path: "stabilityai/stable-diffusion-xl-base-1.0"
+  pretrained_vae_model_name_or_path: "madebyollin/sdxl-vae-fp16-fix"
+  revision: null
+  variant: "fp16"
+
+dataset:
+  train_data_dir: "data/clean/images/brutalism"
+  train_metadata_file: "data/clean/metadata/train.csv"
+  val_metadata_file: "data/clean/metadata/val.csv"
+  test_metadata_file: "data/clean/metadata/test.csv"
+  target_style: "Brutalism architecture"
+  image_column: "image_id"
+  caption_column: "caption"
+  resolution: 768  # 768x768 conservative resolution for pilot stability and memory efficiency
+  center_crop: false
+  random_flip: false  # Preserve structural orientation and asymmetrical architectural features
+
+lora:
+  rank: 16  # Conservative rank to prevent memorization on small 22-image training set
+  alpha: 16
+  dropout: 0.05
+  target_modules:
+    - "to_k"
+    - "to_q"
+    - "to_v"
+    - "to_out.0"
+  train_text_encoder: false  # Freeze dual text encoders (OpenCLIP / CLIP) to prevent semantic drift
+
+training:
+  output_dir: "models/brutalism_lora"
+  logging_dir: "models/brutalism_lora/logs"
+  train_batch_size: 1
+  gradient_accumulation_steps: 4  # Effective batch size = 4
+  num_train_epochs: 15
+  max_train_steps: 330  # (22 images / 1) * 15 epochs = 330 steps
+  learning_rate: 1.0e-4
+  scale_lr: false
+  lr_scheduler: "constant_with_warmup"
+  lr_warmup_steps: 30
+  optimizer: "AdamW"  # Use standard AdamW or AdamW8bit if bitsandbytes is available
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_weight_decay: 1.0e-2
+  adam_epsilon: 1.0e-8
+  max_grad_norm: 1.0
+  mixed_precision: "fp16"
+  gradient_checkpointing: true
+  enable_xformers_memory_efficient_attention: false
+  seed: 42
+
+checkpointing:
+  checkpointing_steps: 110  # Save every 5 epochs
+  checkpoints_total_limit: 3
+
+validation:
+  validation_epochs: 5
+  num_validation_images: 3
+  guidance_scale: 7.5
+  num_inference_steps: 30
+  validation_prompts:
+    - "Brutalist architecture, monumental raw concrete civic hall, heavy cantilevered upper floors, deep-set rectangular windows, bold structural piers, dramatic daylight, architectural photography"
+    - "Brutalist museum exterior, monolithic exposed board-marked concrete facade, angular geometric staircase tower, unadorned surface texture, overcast lighting, architectural photography"
+    - "Brutalist university library, modular concrete grid facade, recessed continuous ribbon glazing, heavy concrete colonnade, clear blue sky, street view, architectural photography"
