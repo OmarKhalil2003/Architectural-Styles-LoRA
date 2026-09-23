@@ -1,0 +1,27 @@
+# Style Leakage & Negative Evaluation Prompts
+# Purpose: Test whether the fine-tuned LoRA inappropriately introduces stylistic characteristics
+# from other movements (Gothic, Baroque, Classical, Art Nouveau, Postmodern, Bauhaus, or Commercial High-Tech).
+
+1. [Baseline Test] Brutalist civic building with raw exposed concrete, massive geometric volumes, deep-set rectangular windows, and minimal ornamentation, architectural photography
+   -> Check for leakage: Does it introduce classical pediments, fluted columns, or ornate cornices?
+
+2. [Anti-Gothic Test] Brutalist religious chapel exterior with monolithic raw concrete walls, sharp angular roofline, and unadorned surfaces, architectural photography
+   -> Check for leakage: Does the model introduce pointed Gothic arches, ribbed stone tracery, flying buttresses, or pinnacles?
+
+3. [Anti-Classical & Baroque Test] Brutalist municipal palace with massive cantilevered concrete slabs, heavy structural piers, and deep geometric embrasures, daylight, architectural photography
+   -> Check for leakage: Does the model introduce Corinthian capitals, decorative pediments, entablatures, Baroque scrolling, or classical balustrades?
+
+4. [Anti-Postmodern Test] Brutalist office headquarters with rugged bush-hammered concrete facade and modular rectangular grid openings, architectural photography
+   -> Check for leakage: Does the model introduce playful pastel colors, broken pediments, ironic geometric shapes, or polychrome masonry striping?
+
+5. [Anti-Bauhaus Test] Brutalist educational complex with thick textured board-formed concrete walls and heavy structural projections, natural light, architectural photography
+   -> Check for leakage: Does the model regress to smooth planar white stucco minimalism or lightweight tubular railings?
+
+6. [Anti-Commercial Glass Skyscraper Test] Brutalist commercial bank tower with exposed concrete shear walls, deep vertical slit windows, and monolithic massing, architectural photography
+   -> Check for leakage: Does the model produce a generic lightweight curtain-wall glass box or reflective mirror facade?
+
+7. [Anti-Art Nouveau Test] Brutalist auditorium entrance with heavy cast-in-place concrete canopy and stark rectangular structural portal, architectural photography
+   -> Check for leakage: Does the model introduce organic whiplash curves, floral wrought-iron motifs, or asymmetrical undulating ornaments?
+
+8. [Material Contrast Test] Brutalist residential block with unfinished gray concrete panels and deeply recessed unglazed openings, daylight, architectural photography
+   -> Check for leakage: Does the model introduce brick cladding, polished marble veneer, or timber siding where raw concrete is expected?

@@ -1,0 +1,2 @@
+group_id,image_id_1,image_id_2,filename_1,filename_2,hash_distance,similarity_level,decision
+PERC_DUP_001,ARC_0052,ARC_0055,ARC_0052.jpg,ARC_0055.jpg,9,POSSIBLE_DUPLICATE,POSSIBLE_DUPLICATE

@@ -1,0 +1,17 @@
+# Pinned Python Dependencies for SDXL Brutalism LoRA Pilot
+# Verified on Google Colab (Tesla T4 GPU, CUDA 12.8 / Python 3.13) & Windows Local (CUDA 12.4 / Python 3.10)
+
+torch>=2.1.0,<=2.11.0
+torchvision>=0.16.0,<=0.26.0
+diffusers>=0.30.0,<=0.40.0
+transformers>=4.44.0,<=5.16.1
+accelerate>=0.33.0,<=1.14.0
+peft>=0.12.0,<=0.21.0
+safetensors>=0.4.0,<=0.8.0
+bitsandbytes>=0.43.0,<=0.50.2
+scipy>=1.14.0
+scikit-learn>=1.5.0
+pandas>=2.2.0
+pillow>=10.4.0
+matplotlib>=3.9.0
+nbformat>=5.10.0

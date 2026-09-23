@@ -1,0 +1,32 @@
+=== TRAINING RUNTIME ENVIRONMENT (Google Colab Run) ===
+Platform: Linux (Google Colab Runtime)
+Python: 3.13.15
+PyTorch: 2.11.0+cu128
+Torchvision: 0.26.0+cu128
+CUDA Version: 12.8
+GPU Model: NVIDIA Tesla T4
+GPU Memory (VRAM): 14.56 GB
+CUDA Compute Capability: 7.5
+Diffusers: 0.40.0
+Transformers: 5.16.1
+Accelerate: 1.14.0
+PEFT: 0.20.0
+Safetensors: 0.8.0
+BitsAndBytes: 0.50.2
+
+=== LOCAL AUDIT & EVALUATION RUNTIME ENVIRONMENT ===
+Platform: Windows 10/11
+Python: 3.10.11
+PyTorch: 2.6.0+cu124
+Torchvision: 0.21.0+cu124
+CUDA Version: 12.4
+GPU Model: NVIDIA GeForce GTX 1660 Ti
+GPU Memory (VRAM): 6.00 GB
+Diffusers: 0.40.0
+PEFT: 0.21.0
+Transformers: 5.14.1
+Accelerate: 1.14.0
+Safetensors: 0.8.0
+Pillow: 12.2.0
+Pandas: 2.2.3
+Scikit-Learn: 1.6.1

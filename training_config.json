@@ -1,0 +1,61 @@
+{
+  "experiment_name": "brutalism_sdxl_lora_v1",
+  "base_model": "stabilityai/stable-diffusion-xl-base-1.0",
+  "vae_model": "madebyollin/sdxl-vae-fp16-fix",
+  "dataset": {
+    "style": "Brutalism architecture",
+    "train_data_dir": "data/clean/images/brutalism",
+    "num_training_images": 22,
+    "train_split_filenames": [
+      "ARC_0001.jpg", "ARC_0002.jpg", "ARC_0003.jpg", "ARC_0004.jpg",
+      "ARC_0005.jpg", "ARC_0006.jpg", "ARC_0007.jpg", "ARC_0008.jpg",
+      "ARC_0009.jpg", "ARC_0010.jpg", "ARC_0011.jpg", "ARC_0012.jpg",
+      "ARC_0013.jpg", "ARC_0014.jpg", "ARC_0015.jpg", "ARC_0016.jpg",
+      "ARC_0017.jpg", "ARC_0018.jpg", "ARC_0019.jpg", "ARC_0020.jpg",
+      "ARC_0021.jpg", "ARC_0022.jpg"
+    ],
+    "resolution": 768,
+    "random_flip": true,
+    "center_crop": false
+  },
+  "lora_hyperparameters": {
+    "rank": 16,
+    "alpha": 16,
+    "target_modules": [
+      "to_k",
+      "to_q",
+      "to_v",
+      "to_out.0"
+    ],
+    "train_text_encoder": false
+  },
+  "training_parameters": {
+    "batch_size": 1,
+    "gradient_accumulation_steps": 4,
+    "effective_batch_size": 4,
+    "learning_rate": 0.0001,
+    "lr_scheduler": "constant_with_warmup",
+    "lr_warmup_steps": 30,
+    "max_train_steps": 330,
+    "num_train_epochs": 55,
+    "optimizer": "AdamW",
+    "adam_beta1": 0.9,
+    "adam_beta2": 0.999,
+    "adam_epsilon": 1e-8,
+    "adam_weight_decay": 0.01,
+    "mixed_precision": "fp16",
+    "gradient_checkpointing": true,
+    "seed": 42
+  },
+  "checkpoints": {
+    "checkpointing_steps": 110,
+    "checkpoints_total_limit": 3,
+    "saved_checkpoints": [
+      "checkpoint-110",
+      "checkpoint-220",
+      "checkpoint-330",
+      "final"
+    ]
+  },
+  "exact_training_command": "accelerate launch --mixed_precision=\"fp16\" scripts/train_text_to_image_lora_sdxl.py --pretrained_model_name_or_path=\"stabilityai/stable-diffusion-xl-base-1.0\" --pretrained_vae_model_name_or_path=\"madebyollin/sdxl-vae-fp16-fix\" --train_data_dir=\"data/clean/images/brutalism\" --output_dir=\"outputs/brutalism_sdxl_lora_v1/final\" --image_column=\"image\" --caption_column=\"caption\" --resolution=768 --random_flip --train_batch_size=1 --gradient_accumulation_steps=4 --max_train_steps=330 --learning_rate=0.0001 --lr_scheduler=\"constant_with_warmup\" --lr_warmup_steps=30 --rank=16 --seed=42 --mixed_precision=\"fp16\" --gradient_checkpointing --checkpointing_steps=110 --checkpoints_total_limit=3"
+}

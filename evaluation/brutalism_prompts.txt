@@ -1,0 +1,15 @@
+# Evaluation Prompts: Testing Generalization of Brutalism Architectural Vocabulary
+# Note: These prompts do not mention any specific building from the training dataset.
+
+1. Brutalist civic building with monumental exposed concrete massing, cantilevered upper volumes, and deep-set window embrasures, daylight, architectural photography
+2. Brutalist art museum with monolithic raw concrete walls, sharp angular geometries, and recessed ground entrance, architectural photography
+3. Brutalist university lecture hall complex with tiered board-marked concrete facades and bold structural piers, bright daylight, architectural photography
+4. Brutalist residential apartment building with modular precast concrete balconies and rhythmic geometric facade articulation, urban street view, architectural photography
+5. Brutalist cultural center featuring heavy cantilevered concrete canopies, prominent brise-soleil sun louvers, and unadorned surfaces, architectural photography
+6. Brutalist municipal public library with exposed waffle slab overhangs and recessed continuous horizontal ribbon windows, clear sky, architectural photography
+7. Brutalist urban plaza anchored by massive sculpted concrete administrative towers and sunken paved pedestrian terraces, architectural photography
+8. Brutalist concrete facade close-up detailing rough board-marked timber impressions, exposed aggregate texture, and crisp beveled edges, natural raking light
+9. Brutalist commercial office building viewed from street level showing massive load-bearing concrete pilotis and hard-edged geometric silhouette, architectural photography
+10. Brutalist research facility viewed from an interior concrete courtyard with stepped monolithic terraces and deep structural shadows, architectural photography
+11. Brutalist government pavilion in direct high-noon desert daylight, casting hard geometric cast shadows across bush-hammered concrete walls, architectural photography
+12. Brutalist archive building under diffuse overcast sky, showing weathered gray concrete surfaces, monolithic solid walling, and narrow vertical slit windows, architectural photography

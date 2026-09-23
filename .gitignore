@@ -1,0 +1,32 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Large model weights (>50MB, use GitHub Releases / HuggingFace Hub)
+*.safetensors
+
+# Training checkpoints & optimizer states (> 100MB hard limit)
+*.bin
+*.pt
+*.pkl
+*.tfevents*
+outputs/**/checkpoint-*
+outputs/**/logs/
+
+# Environments & IDEs
+.env
+.venv/
+env/
+venv/
+.idea/
+.vscode/
+.ipynb_checkpoints/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Raw downloads and duplicate processed cache (clean dataset is tracked under data/clean/)
+data/raw/
+data/processed/

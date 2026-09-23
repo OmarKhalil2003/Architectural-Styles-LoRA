@@ -1,0 +1,42 @@
+{
+  "inference_settings": {
+    "resolution": [768, 768],
+    "num_inference_steps": 30,
+    "guidance_scale": 7.5,
+    "base_seed_range": {
+      "controlled_baseline_eval": [42, 47],
+      "lora_generalization_eval": [42, 53],
+      "leakage_probing": [142, 149],
+      "neutral_prompts": [101, 105],
+      "checkpoint_comparison": [201, 203]
+    }
+  },
+  "lora_weight_sweep": [0.0, 0.25, 0.50, 0.75, 1.00],
+  "memorization_protocol": {
+    "backbone": "ResNet-34",
+    "layer": "AdaptiveAvgPool2d (512-dim)",
+    "preprocessing": {
+      "resize": [256, 256],
+      "center_crop": [224, 224],
+      "normalize": {
+        "mean": [0.485, 0.456, 0.406],
+        "std": [0.229, 0.224, 0.225]
+      }
+    },
+    "similarity_metric": "Cosine Similarity",
+    "inspection_thresholds": {
+      "high_similarity_trigger": 0.85,
+      "moderate_similarity": 0.75,
+      "novel_composition": 0.65
+    }
+  },
+  "leakage_evaluation_rubric": [
+    "Gothic (pointed arches, ribbed vaults, tracery)",
+    "Classical & Baroque (pediments, Corinthian columns, entablatures)",
+    "Postmodern (pastel hues, ironic historical pastiche, split pediments)",
+    "Bauhaus / Early Modern (thin-profile steel curtain walls, pristine white stucco)",
+    "Commercial Glass Skyscraper (reflective continuous glass curtain walls)",
+    "Art Nouveau (curvilinear whiplash arches, organic ironwork)",
+    "Material contamination (polished stone, slick composite cladding)"
+  ]
+}

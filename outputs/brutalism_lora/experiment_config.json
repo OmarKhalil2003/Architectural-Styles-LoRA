@@ -1,0 +1,73 @@
+{
+  "experiment_name": "brutalism_sdxl_lora_v1",
+  "project": "Architectural-Styles-LoRA",
+  "task": "Architectural Visual Vocabulary Fine-Tuning",
+  "target_style": "Brutalism architecture",
+  "base_model": {
+    "model_id": "stabilityai/stable-diffusion-xl-base-1.0",
+    "vae_id": "madebyollin/sdxl-vae-fp16-fix",
+    "variant": "fp16",
+    "torch_dtype": "torch.float16"
+  },
+  "dataset": {
+    "dataset_root": "data/clean",
+    "images_dir": "data/clean/images/brutalism",
+    "train_metadata": "data/clean/metadata/train.csv",
+    "val_metadata": "data/clean/metadata/val.csv",
+    "test_metadata": "data/clean/metadata/test.csv",
+    "counts": {
+      "total_images": 28,
+      "train_images": 22,
+      "val_images": 3,
+      "test_images": 3,
+      "unique_buildings": 23
+    },
+    "version": "1.0.0-curated-audited"
+  },
+  "training_hyperparameters": {
+    "resolution": 768,
+    "lora_rank": 16,
+    "lora_alpha": 16,
+    "lora_dropout": 0.05,
+    "target_modules": [
+      "to_k",
+      "to_q",
+      "to_v",
+      "to_out.0"
+    ],
+    "train_text_encoder": false,
+    "learning_rate": 0.0001,
+    "lr_scheduler": "constant_with_warmup",
+    "lr_warmup_steps": 30,
+    "train_batch_size": 1,
+    "gradient_accumulation_steps": 4,
+    "num_train_epochs": 15,
+    "max_train_steps": 330,
+    "optimizer": "AdamW",
+    "mixed_precision": "fp16",
+    "gradient_checkpointing": true,
+    "seed": 42
+  },
+  "checkpointing": {
+    "checkpoint_steps": 110,
+    "save_total_limit": 3,
+    "output_dir": "outputs/brutalism_lora"
+  },
+  "target_hardware": {
+    "primary_colab_gpu": "NVIDIA T4 16GB",
+    "preferred_colab_gpu": "NVIDIA L4 24GB",
+    "optional_colab_gpu": "NVIDIA A100 40GB",
+    "approximate_vram_requirement_gb": 11.5,
+    "approximate_disk_storage_gb": 15.0
+  },
+  "pinned_package_requirements": {
+    "torch": ">=2.1.0",
+    "torchvision": ">=0.16.0",
+    "diffusers": ">=0.30.0",
+    "transformers": ">=4.44.0",
+    "accelerate": ">=0.33.0",
+    "peft": ">=0.12.0",
+    "safetensors": ">=0.4.0",
+    "bitsandbytes": ">=0.43.0"
+  }
+}

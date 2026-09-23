@@ -1,0 +1,5 @@
+style,original_count,exact_duplicates,near_duplicates,quality_removed,style_removed,final_unique_count,train_count,val_count,test_count,unique_buildings
+Brutalism architecture,40,0,0,12,0,28,22,3,3,23
+Bauhaus architecture,80,0,1,52,0,28,22,3,3,18
+International style,110,0,0,82,0,28,22,3,3,22
+Postmodern architecture,80,0,0,52,0,28,22,3,3,22
